@@ -55,12 +55,53 @@ return packer.startup(function(use)
   use("navarasu/onedark.nvim") -- Onedark theme
   use("folke/tokyonight.nvim") -- Tokynight theme
 
-    -- LSP
+  -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("ray-x/lsp_signature.nvim")
+	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+
+  -- comletion plugins
+	use("hrsh7th/nvim-cmp") -- The completion plugin
+	use("hrsh7th/cmp-buffer") -- buffer completions
+	use("hrsh7th/cmp-path") -- path completions
+	use("hrsh7th/cmp-cmdline") -- cmdline completions
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-emoji")
+	use("hrsh7th/cmp-nvim-lua")
+	-- TODO: extract cmp-tabnine config to an external file
+	use({
+		"tzachar/cmp-tabnine",
+		config = function()
+			local tabnine = require("cmp_tabnine.config")
+			tabnine:setup({
+				max_lines = 1000,
+				max_num_results = 20,
+				sort = true,
+				run_on_every_keystroke = true,
+				snippet_placeholder = "..",
+				ignored_file_types = {
+					-- default is not to ignore
+					-- uncomment to ignore in lua:
+					-- lua = true
+				},
+			})
+		end,
+		run = "./install.sh",
+		requires = "hrsh7th/nvim-cmp",
+	})
+
+	-- snippets
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
   -- Comment
   use "numToStr/Comment.nvim"
+
+  -- Icon
+  use "kyazdani42/nvim-web-devicons"
 
 
   if PACKER_BOOTSTRAP then
