@@ -5,6 +5,7 @@ end
 
 comment.setup {
   -- TODO: Add preHook for jsx/tsx
+  pre_hook = nill,
   active = true,
   on_config_done = nil,
   ---Add a space b/w comment and the line
