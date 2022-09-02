@@ -50,10 +50,13 @@ return packer.startup(function(use)
   -- Plugin Mangager
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
-  -- colorschemas
+  -- Colorschemas
   use("lunarvim/colorschemes") -- Colorschemes bunch
   use("navarasu/onedark.nvim") -- Onedark theme
   use("folke/tokyonight.nvim") -- Tokynight theme
+
+  -- Comment
+  use "numToStr/Comment.nvim"
 
 
   if PACKER_BOOTSTRAP then
