@@ -55,6 +55,10 @@ return packer.startup(function(use)
   use("navarasu/onedark.nvim") -- Onedark theme
   use("folke/tokyonight.nvim") -- Tokynight theme
 
+    -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+
   -- Comment
   use "numToStr/Comment.nvim"
 
